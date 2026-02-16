@@ -1,12 +1,11 @@
 package frc.robot.subystem.feeder;
 
 
-import edu.wpi.first.units.measure.AngularVelocity;
-import edu.wpi.first.units.measure.Velocity;
+import edu.wpi.first.units.measure.Voltage;
 
 public interface FeederIO {
 
-    public void setVelocity(AngularVelocity velocity);
+    public void setVoltage(Voltage voltage);
     public void readPeriodic();
     public void writePeriodic();
 }

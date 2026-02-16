@@ -9,8 +9,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import edu.wpi.first.units.measure.*;
 import org.littletonrobotics.junction.Logger;
 
-import static edu.wpi.first.units.Units.Inches;
-import static edu.wpi.first.units.Units.RPM;
+import static edu.wpi.first.units.Units.*;
 
 public class FeederTalonFX implements FeederIO{
     private final TalonFX feederMotor;
@@ -67,11 +66,9 @@ public class FeederTalonFX implements FeederIO{
     }
 
     @Override
-    public void setVelocity(AngularVelocity velocity) {
-        control.Velocity = velocity.in(RPM.getBaseUnit());
-        control.Acceleration = (velocity.in(RPM.getBaseUnit()) - feederVelocitySignal.getValue().in(RPM.getBaseUnit()));
+    public void setVoltage(Voltage voltage) {
+        control.Velocity = voltage.in(Volts);
         feederMotor.setControl(control);
-
     }
 
     @Override
